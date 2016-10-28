@@ -1,0 +1,13 @@
+# userAgent: hongyi
+# cache: false
+# allowOrigin: '*'
+urlReplace:
+  # m.juanpi.com:
+  #   /help/customer: /act/gouwujiexryr11
+  #   /about/juanpi: /act/gouwujie11
+proxy:
+  # proxy for domain
+  # m.juanpi.com: 192.168.143.171
+  # proxy for specified path
+  # act.juancdn.com:
+  #   /ActGoodsJs: 183.2.192.35

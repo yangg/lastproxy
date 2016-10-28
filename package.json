@@ -1,0 +1,29 @@
+{
+  "name": "lastproxy",
+  "version": "1.0.0",
+  "description": "A wrapper provide yaml config for anyproxy",
+  "main": "index.js",
+  "dependencies": {
+    "anyproxy": "^3.10.3",
+    "js-yaml": "^3.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "pm2 start index.js --watch --name=any",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangg/lastproxy.git"
+  },
+  "keywords": [
+    "proxy",
+    "anyproxy"
+  ],
+  "author": "Brook Yang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yangg/lastproxy/issues"
+  },
+  "homepage": "https://github.com/yangg/lastproxy#readme"
+}
