@@ -1,13 +1,18 @@
-# userAgent: hongyi
+# userAgent: iPad
 # cache: false
 # allowOrigin: '*'
 urlReplace:
-  # m.juanpi.com:
-  #   /help/customer: /act/gouwujiexryr11
-  #   /about/juanpi: /act/gouwujie11
+#   example.com:
+#     /help: /current/working/page
+#     /about: /current/working/page2
 proxy:
-  # proxy for domain
-  # m.juanpi.com: 192.168.143.171
-  # proxy for specified path
-  # act.juancdn.com:
-  #   /ActGoodsJs: 183.2.192.35
+#   proxy for domain
+#   example.com: 127.0.0.1
+#   proxy for specified path
+#   example.com
+#     /static: 127.0.0.1
+localResponse:
+#   localResponse exact url
+#   http://example.com/app.js: /local/path/to/debug.js
+#   localResponse specified path
+#   example.com/static/**: /local/folder/to/static

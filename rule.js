@@ -1,9 +1,7 @@
 
-var yaml = require('js-yaml');
-var fs = require('fs');
-var config = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
+var config = require('./config');
 
-module.exports = {
+module.exports = Object.assign({
   summary: function () {
     return JSON.stringify(config, null, 2);
   },
@@ -51,5 +49,7 @@ module.exports = {
       header['Access-Control-Allow-Origin'] = config.allowOrigin;
     }
     return header;
-  }
-};
+  },
+  
+}, require('./localResponse'));
+
