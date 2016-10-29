@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "pm2 start index.js --watch --name=any",
+    "start": "pm2 start index.js --watch --name=last",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +18,8 @@
   },
   "keywords": [
     "proxy",
-    "anyproxy"
+    "anyproxy",
+    "fiddler"
   ],
   "author": "Brook Yang",
   "license": "MIT",

@@ -48,10 +48,12 @@ module.exports = {
       let capturedPath;
       for(let pattern in localResponse) {
         if(req.url === pattern) {
+          // exact url
           console.log('localResponse: ', pattern);
           req.localResponse = localResponse[pattern];
           return true;
         } else if(isGlob(pattern) && (capturedPath = matchPath(pattern, req.url))) {
+          // localResponse for specifed pattern
           console.log('localResponse: %s, %s', pattern, capturedPath);
           req.localResponse = path.join(localResponse[pattern], capturedPath);
           return true;

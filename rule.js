@@ -50,6 +50,12 @@ module.exports = Object.assign({
     }
     return header;
   },
-  
+  shouldInterceptHttpsReq(req){
+    let httpsHost = config.interceptHttps;
+    if (typeof httpsHost == 'object') {
+      return req.headers.host in httpsHost;
+    }
+    return httpsHost;
+  }
 }, require('./localResponse'));
 
