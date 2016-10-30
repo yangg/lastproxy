@@ -10,7 +10,8 @@
   "devDependencies": {},
   "scripts": {
     "start": "pm2 start index.js --watch --name=last",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon  --ext 'js,yml' index.js",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

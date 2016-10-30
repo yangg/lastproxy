@@ -19,7 +19,7 @@ proxy:
   # proxy for domain
   example.com: 127.0.0.1
   # proxy for specified path
-  example.com
+  example.com:
     /static: 127.0.0.1
 ```
 
@@ -47,16 +47,16 @@ Disable cache by remove 'if-modified-since' and 'if-none-match' from request hea
 ### allowOrigin
 Add Access-Control-Allow-Origin header to response
 
-See all [configable options](config.yml.sample)
+### See all [configurable options](config.yml.sample)
 
 ## Usage
 ```bash
 npm install
-copy config.yml.sample config.yml
+cp config.yml.sample config.yml
 
 # You must have pm2 globally installed
 # With pm2 your proxy will restart automatically after script or config files changed
-npm start
+npm start # alias for `pm2 start index.js --watch --name=last`
 # or start via nodemon
 nodemon  --ext "js,yml" index.js
 # or
