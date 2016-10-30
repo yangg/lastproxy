@@ -32,7 +32,6 @@ function matchPath(pattern, url) {
 
   // strip url parameters, not '??'
   url = url.replace(/\?((?!\?).)*/, '');
-  console.log(url);
   var reg = pathRegex(pattern);
   // console.log("'%s'.match(%s) %s", url, reg, (url.match(reg) || [0, false])[1]);
   return (url.match(reg) || [0, false])[1]

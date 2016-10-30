@@ -51,11 +51,13 @@ module.exports = Object.assign({
     return header;
   },
   shouldInterceptHttpsReq(req){
-    let httpsHost = config.interceptHttps;
-    if (typeof httpsHost == 'object') {
-      return req.headers.host in httpsHost;
+    let interceptHttps = config.interceptHttps;
+    if (interceptHttps && (typeof interceptHttps == 'object')) {
+      let host = req.headers.host;
+      host = host.replace(/:443$/, ''); // trim ending port :443 for SwitchyOmega
+      return host in interceptHttps;
     }
-    return httpsHost;
+    return interceptHttps;
   }
 }, require('./localResponse'));
 

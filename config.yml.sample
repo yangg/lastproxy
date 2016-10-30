@@ -22,11 +22,11 @@ localResponse:
 #   # localResponse specified pattern
 #   example.com/static/**: /local/folder/to/static
 # intercept all https request
-# interceptHttps: false
-# intercept https for sepcified host
-# interceptHttps:
-#   www.google.com: true
-#   example.com: true
+# interceptHttps: true
+# or intercept https for sepcified host
+interceptHttps:
+#   www.example.com: true
+#   example2.com: true
 
 ## anyproxy config
 
