@@ -46,3 +46,5 @@ interceptHttps:
 # set anyproxy as your system proxy
 # setAsGlobalProxy : false
 # silent: false
+
+# vim: ft=yaml
