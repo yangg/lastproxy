@@ -3,7 +3,7 @@ A wrapper provide yaml config for [AnyProxy](https://github.com/alibaba/anyproxy
 > A fully configurable proxy in NodeJS, which can handle HTTPS requests perfectly.
 
 ## Features
-Easily config the following options (features) for AnyProxy via yml config. 
+Easily config the following options (features) for AnyProxy via yml config.
 ### urlReplace
 Redirect url to another path
 ```yml
@@ -42,10 +42,10 @@ interceptHttps:
 ```
 
 ### cache
-Disable cache by remove 'if-modified-since' and 'if-none-match' from request header
+Disable cache by remove `if-modified-since` and `if-none-match` from request header
 ### userAgent
 ### allowOrigin
-Add Access-Control-Allow-Origin header to response
+Add `Access-Control-Allow-Origin` header to response
 
 ### See all [configurable options](config.yml.sample)
 

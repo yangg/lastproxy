@@ -36,6 +36,7 @@ module.exports = Object.assign({
         // proxy for specified path
         for(let path in proxy) {
           if(option.path.indexOf(path) === 0) {
+            console.log('proxy path', path);
             option.hostname = proxy[path];
           }
         }
