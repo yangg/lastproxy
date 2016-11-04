@@ -34,7 +34,7 @@ module.exports = Object.assign({
 
     // proxy
     if (config.proxy) {
-      let proxyHost = match.matchUrl(req.url, config.proxy, 'proxy to %s for %s');
+      let proxyHost = match.matchUrl(req.url, config.proxy, 'proxy %s => %s');
       if(proxyHost !== false) {
         option.hostname = proxyHost;
       }

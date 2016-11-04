@@ -1,28 +1,16 @@
 
 var config = require('./config');
 var fs = require('fs');
-var path = require('path');
 
 var match = require('./lib/match');
 
 module.exports = {
   shouldUseLocalResponse: function (req, reqBody) {
     if(config.localResponse) {
-      let localResponse = config.localResponse;
-      let capturedPath;
-
-      for(let pattern in localResponse) {
-        if(req.url === pattern) {
-          // exact url
-          console.log('localResponse: ', pattern);
-          req.localResponse = localResponse[pattern];
-          return true;
-        } else if(match.isGlob(pattern) && (capturedPath = match.matchPath(pattern, req.url)) !== false ) {
-          // localResponse for specifed pattern
-          console.log('localResponse: %s, %s', pattern, capturedPath);
-          req.localResponse = path.join(localResponse[pattern], capturedPath);
-          return true;
-        }
+      let localResponse = match.matchUrl(req.url, config.localResponse, 'localResponse %s => %s', true);
+      if(localResponse !== false) {
+        req.localResponse = localResponse;
+        return true;
       }
     }
     return false;

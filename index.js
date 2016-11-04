@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var proxy = require("anyproxy");
 var config = require('./config');
 

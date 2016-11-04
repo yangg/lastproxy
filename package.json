@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A wrapper provide yaml config for anyproxy",
   "main": "index.js",
+  "bin": {
+    "lastproxy": "index.js"
+  },
   "dependencies": {
     "anyproxy": "^3.10.3",
     "js-yaml": "^3.6.1"
