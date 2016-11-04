@@ -1,11 +1,17 @@
 
 var config = require('./config');
 
+var match = require('./lib/match');
+
 module.exports = Object.assign({
   summary: function () {
     return JSON.stringify(config, null, 2);
   },
   replaceRequestOption: function (req, option) {
+    // normalize req.url for https request
+    if(req.url[0] == '/') {
+      req.url = `https://${req.headers.host}${req.url}`;
+    }
 
     if(config.userAgent !== undefined) {
       option.headers['user-agent'] = config.userAgent;
@@ -27,19 +33,10 @@ module.exports = Object.assign({
     }
 
     // proxy
-    if(config.proxy) {
-      let proxy = config.proxy[option.hostname];
-      if(typeof proxy == 'string') {
-        // proxy for domain
-        option.hostname = proxy;
-      } else {
-        // proxy for specified path
-        for(let path in proxy) {
-          if(option.path.indexOf(path) === 0) {
-            console.log('proxy path', path);
-            option.hostname = proxy[path];
-          }
-        }
+    if (config.proxy) {
+      let proxyHost = match.matchUrl(req.url, config.proxy, 'proxy to %s for %s');
+      if(proxyHost !== false) {
+        option.hostname = proxyHost;
       }
     }
     return option;
@@ -60,5 +57,5 @@ module.exports = Object.assign({
     }
     return interceptHttps;
   }
-}, require('./localResponse'));
+}, require('./pauseResponse'), require('./localResponse'));
 

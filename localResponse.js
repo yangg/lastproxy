@@ -10,13 +10,14 @@ module.exports = {
     if(config.localResponse) {
       let localResponse = config.localResponse;
       let capturedPath;
+
       for(let pattern in localResponse) {
         if(req.url === pattern) {
           // exact url
           console.log('localResponse: ', pattern);
           req.localResponse = localResponse[pattern];
           return true;
-        } else if(match.isGlob(pattern) && (capturedPath = match.matchPath(pattern, req.url))) {
+        } else if(match.isGlob(pattern) && (capturedPath = match.matchPath(pattern, req.url)) !== false ) {
           // localResponse for specifed pattern
           console.log('localResponse: %s, %s', pattern, capturedPath);
           req.localResponse = path.join(localResponse[pattern], capturedPath);
@@ -28,7 +29,7 @@ module.exports = {
   },
 
   dealLocalResponse: function (req, reqBody, callback) {
-    var filePath = req.localResponse;
+    let filePath = req.localResponse;
     console.log('dealLocalResponse: ', filePath);
     fs.readFile(filePath,  (err, data) => {
       if (!err) {

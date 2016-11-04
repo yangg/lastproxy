@@ -12,25 +12,30 @@ urlReplace:
     /help: /current/working/page
     /about: /current/working/page2
 ```
-### proxy
-Reverse proxy for specified host or path
-```yml
-proxy:
-  # proxy for domain
-  example.com: 127.0.0.1
-  # proxy for specified path
-  example.com:
-    /static: 127.0.0.1
-```
 
 ### localResponse
-Map remote folder or file to local
+Map remote file or folder to local
 ```yml
 localResponse:
-  # localResponse exact url
+  # localResponse for url or pattern
   http://example.com/app.js: /local/path/to/debug.js
-  # localResponse specified pattern
   example.com/static/**: /local/folder/to/static
+```
+### proxy
+Reverse proxy for url or pattern
+```yml
+proxy:
+  # proxy for url or pattern
+  http://example.com/app.js: 127.0.0.1
+  example.com/static/**: 127.0.0.1
+```
+### pauseResponse
+pause response in ms
+```yml
+pauseResponse:
+  # pause response in ms
+  # pauseResponse for url or patter
+  example.com/images/**: 2000
 ```
 
 ### interceptHttps
