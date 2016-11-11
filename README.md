@@ -33,9 +33,9 @@ proxy:
 pause response in ms
 ```yml
 pauseResponse:
-  # pause response in ms
+  # pause response in second
   # pauseResponse for url or patter
-  example.com/images/**: 2000
+  example.com/images/**: 2
 ```
 
 ### interceptHttps
