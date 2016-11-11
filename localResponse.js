@@ -6,6 +6,11 @@ var match = require('./lib/match');
 
 module.exports = {
   shouldUseLocalResponse: function (req, reqBody) {
+    // normalize req.url for https request
+    if(req.url[0] == '/') {
+      req.url = `https://${req.headers.host}${req.url}`;
+    }
+
     if(config.localResponse) {
       let localResponse = match.matchUrl(req.url, config.localResponse, 'localResponse %s => %s', true);
       if(localResponse !== false) {

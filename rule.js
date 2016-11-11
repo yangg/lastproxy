@@ -8,11 +8,6 @@ module.exports = Object.assign({
     return JSON.stringify(config, null, 2);
   },
   replaceRequestOption: function (req, option) {
-    // normalize req.url for https request
-    if(req.url[0] == '/') {
-      req.url = `https://${req.headers.host}${req.url}`;
-    }
-
     if(config.userAgent !== undefined) {
       option.headers['user-agent'] = config.userAgent;
     }
