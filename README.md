@@ -30,11 +30,11 @@ proxy:
   example.com/static/**: 127.0.0.1
 ```
 ### pauseResponse
-pause response in ms
+pause response in second
 ```yml
 pauseResponse:
   # pause response in second
-  # pauseResponse for url or patter
+  # pauseResponse for url or pattern
   example.com/images/**: 2
 ```
 
