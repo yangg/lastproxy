@@ -83,7 +83,7 @@ lastproxy
 ```
 
 ## Development
-```
+```bash
 git clone https://github.com/yangg/lastproxy.git
 cd lastproxy
 npm install
