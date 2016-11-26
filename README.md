@@ -65,6 +65,7 @@ interceptHttps:
 ### cache
 Disable cache by remove `if-modified-since` and `if-none-match` from request header
 ### userAgent
+Customize user-agent
 ### allowOrigin
 Add `Access-Control-Allow-Origin` header to response
 

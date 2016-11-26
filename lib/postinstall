@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+
+let userConfigFile = require('os').homedir() + '/.lastproxy.yml';
+if(!fs.existsSync(userConfigFile)) {
+  fs.writeFileSync(userConfigFile, fs.readFileSync(__dirname + '/../config.yml.sample'));
+  console.log(`Config file "${userConfigFile}" created`);
+}
+
+// vim: ft=javascript
