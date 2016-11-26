@@ -52,5 +52,5 @@ module.exports = Object.assign({
     }
     return interceptHttps;
   }
-}, require('./pauseResponse'), require('./localResponse'));
+}, require('./lib/pauseResponse'), require('./lib/localResponse'), require('./lib/replaceResponse'));
 

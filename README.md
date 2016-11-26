@@ -21,6 +21,7 @@ localResponse:
   http://example.com/app.js: /local/path/to/debug.js
   example.com/static/**: /local/folder/to/static
 ```
+
 ### proxy
 Reverse proxy for url or pattern
 ```yml
@@ -29,6 +30,18 @@ proxy:
   http://example.com/app.js: 127.0.0.1
   example.com/static/**: 127.0.0.1
 ```
+
+### weinre
+Inject weinre script
+```yml
+weinre:
+  # inject weinre to all sites
+  # true
+  # or specified url
+  example.com/**: true
+  other.com/test/**: true
+```
+
 ### pauseResponse
 pause response in second
 ```yml
@@ -42,6 +55,9 @@ pauseResponse:
 Intercept https for specified host
 ```yml
 interceptHttps:
+  # intercept https for all sites
+  # true
+  # or sepcified host
   www.example.com: true
   example2.com: true
 ```
@@ -54,16 +70,28 @@ Add `Access-Control-Allow-Origin` header to response
 
 ### See all [configurable options](config.yml.sample)
 
+## Installation
+```bash
+npm install -g lastproxy
+```
+
 ## Usage
 ```bash
+# start lastproxy, you can edit ~/.lastproxy.yml on your own.
+lastproxy
+```
+
+## Development
+```
+git clone https://github.com/yangg/lastproxy.git
+cd lastproxy
 npm install
 cp config.yml.sample config.yml
-
 # You must have pm2 globally installed
-# With pm2 your proxy will restart automatically after script or config files changed
+# With pm2 lastproxy will restart automatically after script or config files changed
 npm start # alias for `pm2 start index.js --watch --name=last`
 # or start via nodemon
-nodemon  --ext "js,yml" index.js
+# nodemon  --ext "js,yml" index.js
 # or
-node index.js
+# node index.js
 ```

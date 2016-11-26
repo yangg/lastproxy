@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "anyproxy": "^3.10.3",
+    "ip": "^1.1.4",
     "js-yaml": "^3.6.1"
   },
   "devDependencies": {},
@@ -30,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/yangg/lastproxy/issues"
   },
-  "homepage": "https://github.com/yangg/lastproxy#readme"
+  "homepage": "https://github.com/yangg/lastproxy#readme",
+  "optionalDependencies": {
+    "weinre": "^2.0.0-pre-I0Z7U9OV"
+  }
 }

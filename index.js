@@ -1,15 +1,18 @@
 #!/usr/bin/env node
 
-var proxy = require("anyproxy");
-var config = require('./config');
+const proxy = require("anyproxy");
+const config = require('./config');
+const startWeinreServer = require('./weinre');
 
 function startServer() {
   let host = require('ip').address();
   if(config.silent) {
     console.log(`Http proxy started at ${host}:${config.port}`);
-    console.log(`Proxy interface started at ${host}:${config.webPort}`);
+    console.log(`Proxy interface started at localhost:${config.webPort}`);
   }
-  console.log(`Weinre interface started at ${host}:${config.weinrePort}`);
+
+  config.weinre && startWeinreServer();
+  
   new proxy.proxyServer(Object.assign({ }, config, { rule: require("./rule") }));
 }
 
