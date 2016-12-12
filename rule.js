@@ -18,15 +18,6 @@ module.exports = Object.assign({
       delete option.headers['if-none-match'];
     }
 
-    // https://nodejs.org/api/http.html#http_http_request_options_callback
-    // urlReplace
-    if(config.urlReplace) {
-      let urlReplace = config.urlReplace[option.hostname];
-      if (urlReplace && (option.path in urlReplace)) {
-        option.path = urlReplace[option.path];
-      }
-    }
-
     // proxy
     if (config.proxy) {
       let proxyHost = match.matchUrl(req.url, config.proxy, 'proxy %s => %s');

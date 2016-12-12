@@ -7,9 +7,8 @@
 # Add `Access-Control-Allow-Origin header` to response
 # allowOrigin: '*'
 urlReplace:
-#   example.com:
-#     /help: /current/working/page
-#     /about: /current/working/page2
+  http://example.com/help: /current/working/page
+  http://example.com/about: http://example2.com/current/working/page2
 localResponse:
   # localResponse for url or pattern
   # http://example.com/app.js: /local/path/to/debug.js

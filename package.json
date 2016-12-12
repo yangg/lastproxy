@@ -16,7 +16,7 @@
     "start": "pm2 start index.js --watch --name=last",
     "dev": "nodemon  --ext 'js,yml' index.js",
     "test": "mocha",
-    "postinstall": "./lib/postinstall"
+    "postinstall": "node lib/postinstall"
   },
   "repository": {
     "type": "git",

@@ -8,9 +8,8 @@ Easily config the following options (features) for AnyProxy via yml config.
 Redirect url to another path
 ```yml
 urlReplace:
-  example.com:
-    /help: /current/working/page
-    /about: /current/working/page2
+  http://example.com/help: /current/working/page
+  http://example.com/about: http://example2.com/current/working/page2
 ```
 
 ### localResponse
