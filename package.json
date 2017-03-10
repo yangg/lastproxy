@@ -14,6 +14,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "pm2 start index.js --watch --name=last",
+    "t": "node index.js",
     "dev": "nodemon  --ext 'js,yml' index.js",
     "test": "mocha",
     "postinstall": "node lib/postinstall"
